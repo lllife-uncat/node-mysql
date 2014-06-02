@@ -2,7 +2,7 @@ var assert = require("chai").assert;
 var expect = require("chai").expect;
 var db = require("../db").MyDb;
 
-describe("MySql", function(){
+describe.skip("MySql", function(){
 
   it.skip("Connect mysql ok.", function(done){
     db.connect(function(err){
@@ -11,7 +11,7 @@ describe("MySql", function(){
     });
   });
 
-  it("Query data ok.", function(done){
+  it.skip("Query data ok.", function(done){
     db.query("select * from buserinfo", function(err, rows){
       expect(err).to.equal(null);
       expect(rows).to.not.equal(null);
@@ -53,17 +53,3 @@ describe("MySql", function(){
   });
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-

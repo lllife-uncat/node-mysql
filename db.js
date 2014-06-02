@@ -7,6 +7,9 @@ var configs = {
   database: "bupa2014"
 };
 
+// aia
+configs.database = "aia_group";
+
 function MyDb() {
 
   this.connection = mysql.createConnection(configs);
@@ -15,8 +18,12 @@ function MyDb() {
     this.connection.connect(callback);
   };
 
-  this.query = function(sql, callback) {
-    this.connection.query(sql, callback);
+  this.query = function(sql, params , callback) {
+    if(!params) {
+      this.connection.query(sql, callback);
+    }else {
+      this.connection.query(sql, params, callback);
+    }
   };
 
   this.insert = function(sql, params, callback) {
